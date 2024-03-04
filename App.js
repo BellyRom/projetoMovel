@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import { useState } from 'react';
 
 const getNomeCompleto = (nome , sobrenome) => { 
   return nome + ' ' + sobrenome;
@@ -19,21 +20,35 @@ const Cat = ({nome, sobrenome, idade}) => {
     
   const texto = (idade <= 1) ? 'ano' : 'anos'
 
-  return <Text>Hola, yo soy {getNomeCompleto(nome, sobrenome).toUpperCase()} {texto}</Text>
+  return <Text>Hola, yo soy {getNomeCompleto(nome, sobrenome).toUpperCase()} y mi edad es {idade} {texto}</Text>
 }
 
 export default IFAL;
 
 function IFAL() {
+
+
+  const [cliques, setCliques] = useState(0);
+
   return (
     <View style={styles.container}>
       <Cat nome = 'black' sobrenome='pink' idade={1}/>
       <Cat nome = 'apolo' sobrenome='titã' idade={0}/>
       <Cat nome = 'garfield'sobrenome='lasanha' idade={-2}/>
       <StatusBar style="auto" />
+    <View style={styles.botoes}>
+      <Button title='ClicK' onPress={() => {
+        setCliques(cliques + 1);
+      }} />  
+     <Button title='zerar' onPress={() => {
+        setCliques(0);
+      }} />
+      </View>
+      <Text>Quantidade de cliques: {cliques}</Text>
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -42,4 +57,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  botoes: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-evenly'
+  }
 });
