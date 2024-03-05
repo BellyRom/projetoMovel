@@ -60,6 +60,8 @@ const styles = StyleSheet.create({
   botoes: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-evenly',
+    width: '50%'
+    
   }
 });
