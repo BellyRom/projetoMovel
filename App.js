@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { useState } from 'react';
+import Calculadora from './calculadora'
 
 const getNomeCompleto = (nome , sobrenome) => { 
   return nome + ' ' + sobrenome;
@@ -23,7 +24,7 @@ const Cat = ({nome, sobrenome, idade}) => {
   return <Text>Hola, yo soy {getNomeCompleto(nome, sobrenome).toUpperCase()} y mi edad es {idade} {texto}</Text>
 }
 
-export default IFAL;
+export default Calculadora;
 
 function IFAL() {
 
